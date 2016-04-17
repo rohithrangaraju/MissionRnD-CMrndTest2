@@ -118,8 +118,12 @@ int mangocity_count_ways(struct node *startcity,int k, int *shortestpath,int *sh
 	for (i = 0; i < index1; i++){
 		for (j = 0; arr[indexarr[i]][j]; j++){
 			if (min == countArr[i]){
-				shortestpath = (int*)arr[indexarr[i]][j];
+				*shortestpathlen = countArr[i];
+				for (int k = 0; arr[indexarr[i]][k] != '\0';k++)
+				shortestpath[k] = (arr[indexarr[i]][k]-48);
 			}
 		}
 	}
+	return index1;
+	
 }
