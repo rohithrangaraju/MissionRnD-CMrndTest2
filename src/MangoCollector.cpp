@@ -83,6 +83,7 @@ void findPath(struct node *headNode, int *k, int *l,char **ar){
 }
 int mangocity_count_ways(struct node *startcity,int k, int *shortestpath,int *shortestpathlen){
 	//Just Copy values in shortestpath and shortestpathlen .Dont allocate memory for it .
+	if (startcity == NULL || k == 0 || shortestpath == NULL)return -1;
 	int *mainIndex = (int*)calloc(1, sizeof(int));
 	int *lowIndex = (int*)calloc(1, sizeof(int));
 	char** arr = (char**)calloc(50, sizeof(char*));

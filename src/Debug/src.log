@@ -1,18 +1,17 @@
-﻿Build started 17-04-2016 14:47:34.
+﻿Build started 17-04-2016 15:40:36.
      1>Project "C:\Users\HP PC\MissionRnDProjects\C_Test2\src\src.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CommonRoute.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CommonRoute.cpp MangoCollector.cpp OddEven.cpp
+         OddEven.cpp
+     1>c:\users\hp pc\missionrndprojects\c_test2\src\oddeven.cpp(169): warning C4172: returning address of local variable or temporary
+         MangoCollector.cpp
+     1>c:\users\hp pc\missionrndprojects\c_test2\src\mangocollector.cpp(118): warning C4101: 'minIndex' : unreferenced local variable
          CommonRoute.cpp
-     1>c:\users\hp pc\missionrndprojects\c_test2\src\commonroute.cpp(54): warning C4715: 'find_common_route' : not all control paths return a value
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\HP PC\MissionRnDProjects\C_Test2\Debug\src.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\HP PC\MissionRnDProjects\C_Test2\Debug\src.pdb" /SUBSYSTEM:CONSOLE /HEAP:"10000000","100000" /STACK:"10000000","100000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\HP PC\MissionRnDProjects\C_Test2\Debug\src.lib" /MACHINE:X86 Debug\CommonRoute.obj
-         Debug\MainCMrndTest2.obj
-         Debug\MangoCollector.obj
-         Debug\Pillars.obj
-         Debug\OddEven.obj
-         src.vcxproj -> C:\Users\HP PC\MissionRnDProjects\C_Test2\Debug\src.exe
-     1>Done Building Project "C:\Users\HP PC\MissionRnDProjects\C_Test2\src\src.vcxproj" (Build target(s)).
+     1>c:\users\hp pc\missionrndprojects\c_test2\src\commonroute.cpp(62): error C2143: syntax error : missing ';' before '}'
+     1>c:\users\hp pc\missionrndprojects\c_test2\src\commonroute.cpp(62): warning C4390: ';' : empty controlled statement found; is this the intent?
+         Generating Code...
+     1>Done Building Project "C:\Users\HP PC\MissionRnDProjects\C_Test2\src\src.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:01.17
+Time Elapsed 00:00:01.64
