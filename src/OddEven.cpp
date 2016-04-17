@@ -153,9 +153,7 @@ int * oddeven_sll(struct oddevennode *head){
 
 	
 
-	//Below code is for setting odd random pointers
-	//printf("loop");
-	//printf("%d",oddtempslow->data);
+	
 	setOddpointer(head);
 	setEvenpointer(head);
 	//below code is for setting even random pointers
@@ -166,7 +164,7 @@ int * oddeven_sll(struct oddevennode *head){
 		if (temp->data % 2 != 0)arr[0]++;
 		else arr[1]++;
 	}
-	//printf("%d,%d",arr[0],arr[1]);
+	
 
 	return arr;
 }
