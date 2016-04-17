@@ -37,8 +37,136 @@ struct oddevennode{
 	struct oddevennode * random;
 
 };
+void setOddpointer(struct oddevennode *head1){
+	struct oddevennode* oddtempfast = head1->next;
+	struct oddevennode* oddtempslow = head1;
+	//printf("%d",oddtempslow->data);
+	if (oddtempslow->data % 2 != 0){
 
+		//printf("loop");
+		while (1){
+			//printf("loop");
+			//printf("%d",oddtempfast->data);
+			if (oddtempfast->data % 2 != 0){
+				//  printf("%d",oddtempfast->data);
+				oddtempslow->random = oddtempfast;
+				//oddtempslow->next = oddtempslow->random;
+				//struct oddevennode* temp = oddtempslow;
+				while (oddtempslow->random != NULL){
+
+					oddtempslow = oddtempslow->random;
+
+				}
+				//printf("%d",oddtempslow->data);
+			}
+			//printf("s");
+			oddtempfast = oddtempfast->next;
+			if (oddtempfast == NULL)break;
+
+		}
+	}
+	else{
+		//   printf("%d",head1->data);
+		oddtempfast = head1->next;
+		oddtempslow = head1;
+		while (oddtempslow->data % 2 == 0){
+			oddtempslow = oddtempslow->next;
+			oddtempfast = oddtempfast->next;
+			// printf("%d",oddtempslow->data);
+		}
+		while (1){
+
+			if (oddtempfast->data % 2 != 0){
+				printf("%d", oddtempfast->data);
+				oddtempslow->random = oddtempfast;
+				//oddtempslow->next = oddtempslow->random;
+				//struct oddevennode* temp = oddtempslow;
+				while (oddtempslow->random != NULL){
+					oddtempslow = oddtempslow->random;
+				}
+			}
+			oddtempfast = oddtempfast->next;
+			if (oddtempfast == NULL)break;
+
+		}
+	}
+}
+void setEvenpointer(struct oddevennode *head1){
+	struct oddevennode* oddtempfast = head1->next;
+	struct oddevennode* oddtempslow = head1;
+	//printf("%d",oddtempslow->data);
+	if (oddtempslow->data % 2 == 0){
+
+		//printf("loop");
+		while (1){
+			//printf("loop");
+			//printf("%d",oddtempfast->data);
+			if (oddtempfast->data % 2 == 0){
+				//  printf("%d",oddtempfast->data);
+				oddtempslow->random = oddtempfast;
+				//oddtempslow->next = oddtempslow->random;
+				//struct oddevennode* temp = oddtempslow;
+				while (oddtempslow->random != NULL){
+
+					oddtempslow = oddtempslow->random;
+
+				}
+				//printf("%d",oddtempslow->data);
+			}
+			//printf("s");
+			oddtempfast = oddtempfast->next;
+			if (oddtempfast == NULL)break;
+
+		}
+	}
+	else{
+		// printf("%d",head1->data);
+		oddtempfast = head1->next;
+		oddtempslow = head1;
+		while (oddtempslow->data % 2 != 0){
+			oddtempslow = oddtempslow->next;
+			oddtempfast = oddtempfast->next;
+			// printf("%d,%d\n",oddtempslow->data,oddtempfast->next);
+		}
+		while (1){
+
+			if (oddtempfast->data % 2 == 0){
+				// printf("%d",oddtempfast->data);
+				oddtempslow->random = oddtempfast;
+				//oddtempslow->next = oddtempslow->random;
+				//struct oddevennode* temp = oddtempslow;
+				while (oddtempslow->random != NULL){
+
+					oddtempslow = oddtempslow->random;
+				}//printf("%d",oddtempslow->data);
+			}
+			oddtempfast = oddtempfast->next;
+			if (oddtempfast == NULL)break;
+
+		}
+
+	}
+}
 int * oddeven_sll(struct oddevennode *head){
+	if (head == NULL)return NULL;
+	//oddMod(head);
 
-	return NULL;
+	
+
+	//Below code is for setting odd random pointers
+	//printf("loop");
+	//printf("%d",oddtempslow->data);
+	setOddpointer(head);
+	setEvenpointer(head);
+	//below code is for setting even random pointers
+	int arr[] = { 0, 0 };
+	//	printf("%d", a[0]);
+	struct oddevennode* temp;
+	for (temp = head; temp != NULL; temp = temp->next){
+		if (temp->data % 2 != 0)arr[0]++;
+		else arr[1]++;
+	}
+	//printf("%d,%d",arr[0],arr[1]);
+
+	return arr;
 }

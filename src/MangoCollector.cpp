@@ -67,8 +67,59 @@ struct node{
 	struct node *left;
 	struct node *right;
 };
-
+void findPath(struct node *headNode, int *k, int *l,char **ar){
+	if (headNode == NULL)return;
+	ar[*k][*l] = headNode->data;
+	*l++;
+	if (headNode->left == NULL&&headNode->right == NULL){
+		ar[*k][*l] = '\0';
+		*k++;
+		*l = 0;
+	}
+	else{
+		findPath(headNode->left, k, l, ar);
+		findPath(headNode->right, k, l, ar);
+	}
+}
 int mangocity_count_ways(struct node *startcity,int k, int *shortestpath,int *shortestpathlen){
 	//Just Copy values in shortestpath and shortestpathlen .Dont allocate memory for it .
-	return -1;
+	int *mainIndex = (int*)calloc(1, sizeof(int));
+	int *lowIndex = (int*)calloc(1, sizeof(int));
+	char** arr = (char**)calloc(50, sizeof(char*));
+	for (int i = 0; i < 50; i++){
+		arr[i] = (char*)calloc(50, sizeof(char));
+	}
+	findPath(startcity, mainIndex, lowIndex,arr);
+	int i,j;
+	int sum = 0;
+	int indexarr[50];
+	int index1 = 0;
+	for (i = 0; i < *mainIndex; i++){
+		for (j = 0; arr[i][j] != '\0'; j++){
+			sum = sum*10 + (arr[i][j] - 48);
+		}
+		if (sum == k){
+			indexarr[index1++] = *mainIndex;
+		}
+		sum = 0;
+	}
+	int countArr[50]={0};
+	for (i = 0; i < index1; i++){
+		for (j = 0; arr[indexarr[i]][j] != '\0'; j++){
+			countArr[i]++;
+		}
+	}
+	int min = countArr[0];
+	for (i = 1; i < index1; i++){
+		if (min>countArr[i])
+			min = countArr[i];
+	}
+	int minIndex;
+	for (i = 0; i < index1; i++){
+		for (j = 0; arr[indexarr[i]][j]; j++){
+			if (min == countArr[i]){
+				shortestpath = (int*)arr[indexarr[i]][j];
+			}
+		}
+	}
 }
